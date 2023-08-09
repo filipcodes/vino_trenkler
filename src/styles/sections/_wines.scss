@@ -1,0 +1,99 @@
+@use "../abstracts" as *;
+.wines {
+  font-weight: 500;
+  font-size: 1.8rem;
+  margin-bottom: 10rem;
+  .container {
+    @include centerContent;
+  }
+
+  &__title {
+    text-align: center;
+    &::before {
+      content: "Naše Vína";
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__grid {
+    width: 80%;
+    @include grid(3, $gap: 6.4rem);
+    @include media("<=small-screen") {
+      width: 95%;
+      gap: 4.2rem;
+    }
+    @include media("<=tablet") {
+      width: 100%;
+    }
+    @include media("<=700px") {
+      // width: 50%;
+      max-width: 32rem;
+      gap: 9.6rem;
+      grid-template-columns: 1fr;
+    }
+  }
+  &__img {
+    transition: all 0.5s ease-in;
+    width: 100%;
+    height: 100%;
+  }
+  &__price:link,
+  &__price:visited {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 1px;
+    @include pseudo {
+      transition: all $animation-time ease-out;
+      width: 100%;
+      height: 1.5px;
+      background-color: $color-text;
+      bottom: 0px;
+    }
+  }
+  &__price:hover {
+    &:before {
+      transform: translateX(101%);
+    }
+  }
+  &__img-con {
+    width: 100%;
+    aspect-ratio: initial;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.good-wine {
+  text-align: center;
+  padding-top: 0;
+  margin-bottom: 12rem;
+  .container {
+    width: 35%;
+  }
+  @include media("<=1400px") {
+    .container {
+      width: 45%;
+    }
+  }
+  @include media("<=1080px") {
+    .container {
+      width: 55%;
+    }
+  }
+  @include media("<=900px") {
+    .container {
+      width: 65%;
+    }
+  }
+  @include media("<=680px") {
+    .container {
+      width: 80%;
+    }
+  }
+
+  @include media("<=580px") {
+    .container {
+      width: 100%;
+    }
+  }
+}

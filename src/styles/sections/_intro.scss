@@ -1,0 +1,70 @@
+@use "../abstracts" as *;
+.intro {
+  .container {
+    @include grid(2, $gap: 6.4rem) {
+      grid-template-columns: 1fr 2.5fr;
+    }
+    @include media("<=small-screen") {
+      gap: 4.2rem;
+      grid-template-columns: 1fr 2fr;
+    }
+    @include media("<=large-phone") {
+      column-gap: 2.4rem;
+    }
+  }
+  &__img {
+    transition: all 0.5s ease-in;
+    width: 100%;
+    height: 100%;
+
+    &__con {
+      @include media("<=410px") {
+        &-1 {
+          display: none;
+        }
+        &-2 {
+          grid-column: 1/3;
+          height: 18rem;
+        }
+      }
+      &-1 {
+        grid-row: 1/3;
+        width: 100%;
+        height: fit-content;
+        @include media("<=800px") {
+          grid-row: 1/2;
+        }
+      }
+      &-2 {
+        // height: 30rem;
+        max-width: 50rem;
+
+        height: fit-content;
+        align-self: end;
+      }
+    }
+  }
+  &__text {
+    @include media("<=800px") {
+      grid-column: 1/3;
+    }
+  }
+  &__title {
+    font-size: 4.8rem;
+    margin-bottom: 1.2rem;
+    &::before {
+      content: "Náš príbeh";
+    }
+  }
+
+  &__paragraph {
+    grid-column: 2;
+    font-size: 2.4rem;
+    font-weight: 500;
+    max-width: 37ch;
+    margin-bottom: 1.6rem;
+    @include media("<=large-phone") {
+      font-size: 2rem;
+    }
+  }
+}

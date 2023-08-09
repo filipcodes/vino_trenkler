@@ -1,0 +1,28 @@
+@mixin grid($cols, $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+  @content;
+}
+
+@mixin pos-abs($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin pseudo($loc: before, $content: "", $pos: absolute) {
+  position: relative;
+  &::#{$loc} {
+    content: $content;
+    position: $pos;
+    @content;
+  }
+}
+
+@mixin centerContent {
+  display: grid;
+  place-items: center;
+}

@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+
+.section {
+  margin-bottom: 22rem;
+  padding-top: 2.4rem;
+}
+
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.6rem;
+  @include media("<=large-phone") {
+    padding: 0 2.4rem;
+  }
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  transition: all $animation-time;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn--arr {
+  &,
+  &:link,
+  &:visited {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    // text-transform: uppercase;
+
+    padding: 0.8rem 1.8rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+}
+
+.img-container {
+  overflow: hidden;
+  width: 100%;
+}
